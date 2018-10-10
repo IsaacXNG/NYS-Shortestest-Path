@@ -32,8 +32,7 @@ CSC172 Project 4: Street Mapping
 	Bonus/Notable Features: 
 		
 		*I incorporated a zoom feature into the graphics. Left-click doubles the zoom in. Right-click does the opposite.
-		The difficulty was figuring out the panning transformation equation which went something like
-		this (I arrived at the equation myself): 
+		The difficulty was figuring out how to handle panning transformations which was resolved using the following equations: 
 
 			zoom*(x - centerX) + (zoom - 1)*maxWidth/2
 			centerX += (mouseX - maxWidth/2)/zoom
@@ -41,16 +40,12 @@ CSC172 Project 4: Street Mapping
 		What this does is it refocuses the center to the location of the mouse and compensates for the 
 		magnification of x and y.
 
-		*Every data structure except the HashMap was my own implementation that were created in previous labs.
-		HashMap was not a lab assignment.
-
-		*Shortest path for NYS runs in 5 seconds. 3.6 seconds for reading input, 1.4 seconds for calculating.
-
 	Notable Obstacles:
 
 		Dijkstra: A sequential search for minimal distance was highly inefficient at O(n) search time which made
 		it impossible for NYS to load. This was solved using a heap at O(1) search time.
-			  Heapifying the heap at every level proved to be too intensive. I realized that you only 
+		
+		Heapifying the heap at every level proved to be too intensive. I realized that you only 
 		needed to bubbleup when the minimum distance is determined. I stored the index number in each vertex
 		so bubbleup would only take O(1) search time and O(log n) bubble up time as opposed to O(n) search time.
 		
