@@ -29,17 +29,6 @@ CSC172 Project 4: Street Mapping
 			   A disjoint set of Vertices (intersections) was used to determine cycles. If two vertices
 			   had different union identities, then they would merge together and be unioned.
 
-	Bonus/Notable Features: 
-		
-		*I incorporated a zoom feature into the graphics. Left-click doubles the zoom in. Right-click does the opposite.
-		The difficulty was figuring out how to handle panning transformations which was resolved using the following equations: 
-
-			zoom*(x - centerX) + (zoom - 1)*maxWidth/2
-			centerX += (mouseX - maxWidth/2)/zoom
-
-		What this does is it refocuses the center to the location of the mouse and compensates for the 
-		magnification of x and y.
-
 	Notable Obstacles:
 
 		Dijkstra: A sequential search for minimal distance was highly inefficient at O(n) search time which made
